@@ -3,11 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  ArrowRightIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import LoginButton from "@/components/onchainKit/LoginButton";
 
 const MainHeader: React.FC = () => {
   const pathname = usePathname();
@@ -68,13 +65,14 @@ const MainHeader: React.FC = () => {
 
         {/* Sign In Button */}
         <div className="flex justify-end">
-          <Link
+          {/* <Link
             href="/signin"
             className="flex items-center px-6 py-3 bg-white rounded-lg text-black font-medium hover:bg-gray-100 transition-colors duration-200"
           >
             Sign in
             <ArrowRightIcon className="h-5 w-5 ml-2" />
-          </Link>
+          </Link> */}
+          <LoginButton />
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import SignupButton from "@/components/onchainKit/SignupButton";
 
 const CTA = () => {
   return (
@@ -13,7 +13,7 @@ const CTA = () => {
             Join thousands of Nigerians securing their financial future with
             effortless savings and blockchain-powered security.
           </p>
-          <Link
+          {/* <Link
             href="/signup"
             className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-gray-900 bg-white hover:bg-gray-100 transition duration-150 ease-in-out"
           >
@@ -30,7 +30,8 @@ const CTA = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </Link>
+          </Link> */}
+          <SignupButton />
         </div>
       </div>
     </section>

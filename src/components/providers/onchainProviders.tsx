@@ -18,6 +18,7 @@ function OnchainProviders({ children }: Props) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
+        {/* @ts-expect-error hello world */}
         <OnchainKitProvider apiKey={NEXT_PUBLIC_CDP_API_KEY} chain={base}>
           <RainbowKitProvider modalSize="compact">
             {children}
