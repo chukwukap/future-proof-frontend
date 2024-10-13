@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import LoginButton from "@/components/onchainKit/LoginButton";
@@ -29,6 +30,18 @@ const MainHeader: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <Link href="/">
+            <Image
+              src="/images/marketing/hero-dashboard.png"
+              alt="Futureproof Logo"
+              width={40}
+              height={40}
+            />
+          </Link>
+        </div>
+
         {/* Mobile menu button */}
         <div className="md:hidden">
           <button
@@ -64,14 +77,13 @@ const MainHeader: React.FC = () => {
         </nav>
 
         {/* Sign In Button */}
-        <div className="flex justify-end">
-          {/* <Link
-            href="/signin"
-            className="flex items-center px-6 py-3 bg-white rounded-lg text-black font-medium hover:bg-gray-100 transition-colors duration-200"
+        <div className="flex justify-end items-center space-x-4">
+          <Link
+            href="/get-started"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors duration-300"
           >
-            Sign in
-            <ArrowRightIcon className="h-5 w-5 ml-2" />
-          </Link> */}
+            Get Started
+          </Link>
           <LoginButton />
         </div>
       </div>
