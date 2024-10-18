@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import "./app.css";
 import "./globals.css";
 import "@coinbase/onchainkit/styles.css";
 
-import "./app.css";
 import Providers from "@/components/providers";
 
 const geistSans = localFont({

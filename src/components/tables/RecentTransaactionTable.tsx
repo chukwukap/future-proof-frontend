@@ -69,7 +69,7 @@ function RecentTransactionTable() {
 			<TableCaption>A list of your recent invoices.</TableCaption>
 			<TableHeader>
 				<TableRow className='grid grid-cols-3 items-center p-0 [&>th]:flex [&>th]:items-center py-2 '>
-					<TableHead>Type</TableHead>
+					<TableHead>Transaction</TableHead>
 					<TableHead>Account</TableHead>
 					<TableHead className='text-right'>Amount</TableHead>
 				</TableRow>
