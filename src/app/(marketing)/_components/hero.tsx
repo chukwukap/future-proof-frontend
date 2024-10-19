@@ -26,13 +26,13 @@ function MarketingHero() {
 					/>
 					your money
 				</h1>
-				<p className='text-center mt-8'>
+				<p className='text-center mt-8 text-white'>
 					Save, invest, earn interest, and grow your wealth with
 					Nigeria&apos;s first blockchain-powered savings and investment
 					platform. <br /> Securely store, multiply, and manage your
 					finances through innovative digital banking solutions.
 				</p>
-				<button className='mt-[3rem] bg-slate-300 px-12 py-3 text-sm rounded-[1.5rem] text-black text-center mx-auto block'>
+				<button className='shadow-xl mt-[3rem] bg-slate-200 px-16 py-3 text-sm rounded-[1.5rem] text-slate-500 text-center mx-auto block'>
 					Get started
 				</button>
 			</div>

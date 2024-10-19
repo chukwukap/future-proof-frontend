@@ -25,9 +25,7 @@ const MainHeader: React.FC = () => {
 	return (
 		<nav
 			className={`fixed px-8  top-0 left-0 right-0 z-50 transition-all  border-b-[#dcdcdc3d] duration-300 flex items-center justify-between h-[10vh] ${
-				isScrolled
-					? "bg-black bg-opacity-80 backdrop-blur-md"
-					: "bg-transparent"
+				isScrolled ? " backdrop-blur-md border-b" : "bg-transparent"
 			}`}>
 			<div className='flex items-center gap-2'>
 				<Image
@@ -38,7 +36,7 @@ const MainHeader: React.FC = () => {
 				/>
 				<p>FutureProof</p>
 			</div>
-			<div className='flex justify-center items-center gap-6'>
+			<div className='flex justify-center items-center gap-12'>
 				<a
 					className='text-sm'
 					href='#'>
@@ -55,7 +53,7 @@ const MainHeader: React.FC = () => {
 					Team
 				</a>
 			</div>
-			<button className='flex justify-center items-center border rounded-[1.6rem] text-[.8rem] gap-3 pl-5 border-[#e9e9e96f]'>
+			<button className='flex justify-center items-center border rounded-[1.6rem] text-[.8rem] gap-3 pl-5 border-[#e9e9e96f] backdrop-blur-md'>
 				Get started
 				<ChevronRight
 					color='#c4c4c4f7'
