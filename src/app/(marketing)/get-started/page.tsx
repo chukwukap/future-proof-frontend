@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   ArrowRightIcon,
@@ -14,6 +14,18 @@ import SignupButton from "@/components/onchainKit/SignupButton";
 import {} from "@coinbase/onchainkit/wallet";
 
 const GetStartedPage = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isConnected && !isLoading) {
+      if (ensName) {
+        router.push("/auth/login");
+      } else {
+        router.push("https://www.basename.io/");
+      }
+    }
+  }, [isConnected, ensName, isLoading, router]);
+
   const benefits = [
     {
       icon: IdentificationIcon,

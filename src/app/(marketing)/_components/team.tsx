@@ -27,13 +27,13 @@ const TeamCard: React.FC<TeamCardProps> = (props) => {
 				</div>
 				<a
 					href={props.twitter}
-					className='text-blue-500 hover:text-blue-400'>
+					className='text-blue-500 hover:text-blue-400 bg-white rounded-[1rem] p-2 w-[35px] h-[35px] flex justify-center items-center'>
 					<Image
 						src='/icons/x-icon.svg'
-						width={30}
-						height={30}
+						width={25}
+						height={25}
 						alt='twitter'
-						className='p-1 bg-white rounded-[1rem]'
+						className='invert  object-contain'
 					/>
 				</a>
 			</div>
