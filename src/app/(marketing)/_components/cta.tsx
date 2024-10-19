@@ -1,6 +1,8 @@
 import React from "react";
 import SignupButton from "@/components/onchainKit/SignupButton";
 import Image from "next/image";
+// import SignupButton from "@/components/onchainKit/SignupButton";
+import Link from "next/link";
 
 const CTA = () => {
 	return (

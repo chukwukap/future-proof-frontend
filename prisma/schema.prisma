@@ -1,7 +1,7 @@
 // prisma/schema.prisma
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
@@ -10,72 +10,146 @@ generator client {
 }
 
 model User {
-  id            String     @id @default(uuid())
-  address       String     @unique
-  deposits      Deposit[]
-  withdrawals   Withdrawal[]
-  balances      Balance[]
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
+  id                 String       @id @map("_id") @db.ObjectId
+  address            String       @unique
+  smartWalletAddress String?      @unique
+  deposits           Deposit[]
+  withdrawals        Withdrawal[]
+  balances           Balance[]
+  goals              Goal[]
+  referrals          Referral[]
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
 }
 
 model Token {
-  id            String     @id @default(uuid())
-  address       String     @unique
-  symbol        String
-  decimals      Int
-  deposits      Deposit[]
-  withdrawals   Withdrawal[]
-  balances      Balance[]
+  id                    String                 @id @map("_id") @db.ObjectId
+  address               String                 @unique
+  symbol                String
+  decimals              Int
+  deposits              Deposit[]
+  withdrawals           Withdrawal[]
+  balances              Balance[]
   interestDistributions InterestDistribution[]
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
+  goals                 Goal[]
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
 }
 
 model Deposit {
-  id            String     @id @default(uuid())
-  user          User       @relation(fields: [userId], references: [id])
-  userId        String
-  token         Token      @relation(fields: [tokenId], references: [id])
-  tokenId       String
-  amount        String
-  txHash        String
-  createdAt     DateTime   @default(now())
+  id        String   @id @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  token     Token    @relation(fields: [tokenId], references: [id])
+  tokenId   String   @db.ObjectId
+  amount    String
+  txHash    String
+  goal      Goal?    @relation(fields: [goalId], references: [id])
+  goalId    String?  @db.ObjectId
+  createdAt DateTime @default(now())
 }
 
 model Withdrawal {
-  id            String     @id @default(uuid())
-  user          User       @relation(fields: [userId], references: [id])
-  userId        String
-  token         Token      @relation(fields: [tokenId], references: [id])
-  tokenId       String
-  amount        String
-  txHash        String
-  createdAt     DateTime   @default(now())
+  id        String   @id @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  token     Token    @relation(fields: [tokenId], references: [id])
+  tokenId   String   @db.ObjectId
+  amount    String
+  txHash    String
+  goal      Goal?    @relation(fields: [goalId], references: [id])
+  goalId    String?  @db.ObjectId
+  createdAt DateTime @default(now())
 }
 
 model Balance {
-  id            String     @id @default(uuid())
-  user          User       @relation(fields: [userId], references: [id])
-  userId        String
-  token         Token      @relation(fields: [tokenId], references: [id])
-  tokenId       String
-  amount        String
-  lastUpdated   DateTime   @default(now())
+  id          String   @id @map("_id") @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @db.ObjectId
+  token       Token    @relation(fields: [tokenId], references: [id])
+  tokenId     String   @db.ObjectId
+  amount      String
+  lastUpdated DateTime @default(now())
 
   @@unique([userId, tokenId])
 }
 
 model InterestDistribution {
-  id            String     @id @default(uuid())
-  token         Token      @relation(fields: [tokenId], references: [id])
-  tokenId       String
+  id            String   @id @map("_id") @db.ObjectId
+  token         Token    @relation(fields: [tokenId], references: [id])
+  tokenId       String   @db.ObjectId
   totalAmount   String
-  distributedAt DateTime   @default(now())
+  distributedAt DateTime @default(now())
 }
 
 model MerkleRoot {
-  id            String     @id @default(uuid())
-  root          String
-  createdAt     DateTime   @default(now())
+  id        String   @id @map("_id") @db.ObjectId
+  root      String
+  createdAt DateTime @default(now())
+}
+
+model Goal {
+  id            String       @id @map("_id") @db.ObjectId
+  user          User         @relation(fields: [userId], references: [id])
+  userId        String       @db.ObjectId
+  token         Token        @relation(fields: [tokenId], references: [id])
+  tokenId       String       @db.ObjectId
+  name          String
+  targetAmount  String
+  currentAmount String
+  deadline      DateTime?
+  deposits      Deposit[]
+  withdrawals   Withdrawal[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Referral {
+  id              String         @id @map("_id") @db.ObjectId
+  referrer        User           @relation(fields: [referrerId], references: [id])
+  referrerId      String         @db.ObjectId
+  referredAddress String
+  status          ReferralStatus
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+enum ReferralStatus {
+  PENDING
+  COMPLETED
+  REWARDED
+}
+
+model ExchangeRate {
+  id        String   @id @map("_id") @db.ObjectId
+  fromToken String
+  toToken   String
+  rate      Float
+  updatedAt DateTime @default(now())
+
+  @@unique([fromToken, toToken])
+}
+
+model Transaction {
+  id        String            @id @map("_id") @db.ObjectId
+  txHash    String            @unique
+  type      TransactionType
+  status    TransactionStatus
+  userId    String            @db.ObjectId
+  tokenId   String            @db.ObjectId
+  amount    String
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  INTEREST
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
 }

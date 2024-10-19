@@ -1,0 +1,14 @@
+Dark Theme:
+Background: bg-gray-900 (main), bg-gray-800 (secondary)
+Text: text-white (primary), text-gray-300 (secondary)
+Accent: bg-blue-500, text-blue-400
+Success: text-green-400
+Error: text-red-400
+Warning: text-yellow-400
+Light Theme:
+Background: bg-white (main), bg-gray-100 (secondary)
+Text: text-gray-900 (primary), text-gray-600 (secondary)
+Accent: bg-blue-600, text-blue-600
+Success: text-green-600
+Error: text-red-600
+Warning: text-yellow-600
