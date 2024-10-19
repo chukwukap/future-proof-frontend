@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useEffect, Fragment } from "react";
+import TopText from "./top-text";
 const topReviews = [
 	{
 		logo: "/placeholder.svg?height=40&width=120",
@@ -135,9 +136,9 @@ const InfiniteScrollTestimonials: React.FC<InfiniteScrollTestimonialsProps> = ({
 const Review: React.FC = () => {
 	return (
 		<section className='bg-gray-900 text-white py-16 overflow-hidden'>
-			<h2 className='text-blue-400 text-center mb-2'>Testimonials</h2>
-			<h1 className='text-4xl font-bold text-center mb-4'>
-				Real user experiences.
+			<TopText title='Reviews' />
+			<h1 className='text-[2.7rem] font-manrope text-center  font-semibold text-slate-300 '>
+				Our Customers Love Us
 			</h1>
 			<p className='text-center mb-12'>
 				See how our SAAS solution has boosted businesses success.

@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import Xarrow from "react-xarrows";
 import Image from "next/image";
+import TopText from "./top-text";
 
 interface FeatureCardProps {
 	title: string;
@@ -36,9 +37,9 @@ export default function Features() {
 		<div
 			ref={containerRef}
 			className='relative p-4 pt-[4rem] bg-gray-900 overflow-hidden'>
-			<h2 className='text-blue-400 text-center mb-2'>Features</h2>
-			<h1 className='text-[3rem] font-semibold text-center font-manrope flex items-start justify-center text-slate-300 '>
-				Our Features at a glance{" "}
+			<TopText title='Features' />
+			<h1 className='text-[2.7rem] font-semibold text-center font-manrope flex items-start justify-center text-slate-300 '>
+				Features at a glance{" "}
 			</h1>
 			<div className='grid grid-cols-3 gap-[2rem] mt-12 justify-center items-center w-[80%] mx-auto z-10'>
 				<Feature

@@ -205,12 +205,12 @@
 }
 
 .radial--glow {
-	--token-5f948dac-8d73-4e64-9593-778b631dc9a2: #263141;
+	--token-5f948dac-8d73-4e64-9593-778b631dc9a2: #111827;
 	--token-20832d6c-6be5-455d-99ea-51eb6fbc6e93: rgb(255, 255, 255);
 	background: radial-gradient(
 		50% 50% at 50% 50%,
 		var(--token-20832d6c-6be5-455d-99ea-51eb6fbc6e93, #ffffff) 0%,
-		var(--token-5f948dac-8d73-4e64-9593-778b631dc9a2, #263141) 100%
+		var(--token-5f948dac-8d73-4e64-9593-778b631dc9a2, #111827) 100%
 	);
 	flex: none;
 	opacity: 0.12;
