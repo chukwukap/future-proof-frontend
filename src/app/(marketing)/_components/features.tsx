@@ -1,85 +1,70 @@
 "use client";
 import React, { useRef } from "react";
 import Xarrow from "react-xarrows";
+import Image from "next/image";
 
-const Feature = ({
-  title,
-  description,
-  className,
-  id,
-}: {
-  title: string;
-  description: string;
-  className: string;
-  id: string;
-}) => (
-  <div
-    id={id}
-    className={`absolute bg-white bg-opacity-90 rounded-lg p-6 shadow-lg md:w-[400px] w-[300px] ${className}`}
-  >
-    <h3 className="text-xl font-bold mb-2">{title}</h3>
-    <p className="text-gray-600 text-sm">{description}</p>
-  </div>
+interface FeatureCardProps {
+	title: string;
+	description: string;
+	id: string;
+	src: string;
+}
+
+const Feature: React.FC<FeatureCardProps> = (props) => (
+	<div
+		id={props.id}
+		className={`  bg-opacity-90 rounded-lg p-10 shadow-lg bg-[#263141]`}>
+		<Image
+			src={props.src}
+			width={90}
+			height={90}
+			alt='icon'
+			className='mb-6'
+		/>
+		<h3 className='text-xl font-bold mb-4 font-manrope text-gray-300'>
+			{props.title}
+		</h3>
+		<p className='text-gray-500 '>{props.description}</p>
+	</div>
 );
 
 export default function Features() {
-  const containerRef = useRef<HTMLDivElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
 
-  return (
-    <div
-      ref={containerRef}
-      className="relative min-h-screen bg-[#C8CFD1] flex items-center justify-center p-4"
-    >
-      <div className="relative w-full max-w-7xl aspect-[16/9]">
-        <Feature
-          id="feature1"
-          title="Multi-Currency Savings"
-          description="Save and manage your funds in both Naira and leading cryptocurrencies like USDC, EURC, and Bitcoin (cbBTC), giving you flexibility and protection against inflation."
-          className="feature top-0 left-0 md:text-base text-sm"
-        />
-        <Feature
-          id="feature2"
-          title="Goal-Based Savings"
-          description="Set personalized financial goals, automate your savings, and track your progress with ease. Futureproof helps you stay on top of your goals, whether it's for a new car, vacation, or emergency fund."
-          className="feature top-0 right-0 md:text-base text-sm"
-        />
-        <Feature
-          id="feature3"
-          title="Earn Competitive Interest"
-          description="Grow your savings with high interest rates through DeFi protocols. Watch your savings grow in real-time with transparent earnings breakdowns."
-          className="feature bottom-0 left-0 md:text-base text-sm"
-        />
-        <Feature
-          id="feature4"
-          title="Blockchain-Powered Security"
-          description="Your funds are secured using blockchain technology, offering transparency, fast transactions, and strong protection against fraud, so you can trust your savings are safe and easily accessible."
-          className="feature bottom-0 right-0 md:text-base text-sm"
-        />
-        <div
-          id="centerCircle"
-          className="center-circle absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-        >
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white bg-opacity-30 flex items-center justify-center">
-            <div className="w-36 h-36 md:w-48 md:h-48 rounded-full bg-white bg-opacity-30 flex items-center justify-center">
-              <div className="text-xl md:text-2xl font-bold">Key Features</div>
-            </div>
-          </div>
-        </div>
-
-        {["feature1", "feature2", "feature3", "feature4"].map((id) => (
-          <Xarrow
-            key={id}
-            start={id}
-            end="centerCircle"
-            color="rgba(255,255,255,0.6)"
-            strokeWidth={2}
-            path="smooth"
-            curveness={0.3}
-            startAnchor="middle"
-            endAnchor="middle"
-          />
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<div
+			ref={containerRef}
+			className='relative p-4 pt-[4rem] bg-gray-900'>
+			<h1 className='text-[3rem] font-semibold text-center font-manrope flex items-start justify-center text-slate-300 '>
+				<Image
+					src='/images/dashboard/competitive-shape.svg'
+					width={50}
+					height={50}
+					alt='icon'
+					className='mb-6 inline-block rotating-element'
+				/>
+				ur Features{" "}
+			</h1>
+			<div className='grid grid-cols-3 gap-[2rem] mt-12 justify-center items-center w-[80%] mx-auto'>
+				<Feature
+					id='feature2'
+					src='/images/dashboard/goal-shape.svg'
+					title='Goal-Based Savings'
+					description='Set financial goals, automate savings, and track progress effortlessly.'
+				/>
+				<Feature
+					id='feature1'
+					src='/images/dashboard/multiple-shape.svg'
+					title='Multi-Currency Savings'
+					description='Save in Naira and popular cryptocurrencies like USDC, EURC, and Bitcoin.'
+				/>
+				<Feature
+					id='feature4'
+					src='/images/dashboard/blockchain-shape.svg'
+					title='Blockchain-Powered Security'
+					description='Secure funds with blockchain, ensuring transparency and protection against fraud.'
+				/>
+			</div>
+		</div>
+	);
 }

@@ -12,6 +12,8 @@
   "dependencies": {
     "@coinbase/onchainkit": "^0.33.6",
     "@heroicons/react": "^2.1.5",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-select": "^2.1.2",
     "@prisma/client": "^5.20.0",
     "@radix-ui/react-slot": "^1.1.0",
     "chart.js": "^4.4.4",
