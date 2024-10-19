@@ -1,5 +1,8 @@
+"use client";
 import GoalsPageClient from "./goalsPageClient";
 
-export default async function GoalsPage() {
+function GoalsPage() {
   return <GoalsPageClient />;
 }
+
+export default GoalsPage;

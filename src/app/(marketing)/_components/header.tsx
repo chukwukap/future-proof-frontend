@@ -1,17 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import LoginButton from "@/components/onchainKit/LoginButton";
-import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 
+import SignUpButton from "@/components/onchainKit/SignupButton";
+
 const MainHeader: React.FC = () => {
-  const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -46,13 +40,7 @@ const MainHeader: React.FC = () => {
           Team
         </a>
       </div>
-      <button className="flex justify-center items-center border rounded-[1.6rem] text-[.8rem] gap-3 pl-5 border-[#e9e9e96f]">
-        Get started
-        <ChevronRight
-          color="#c4c4c4f7"
-          className="border rounded-full h-9 w-9 p-1 bg-[#c4c4c41d]"
-        />
-      </button>
+      <SignUpButton />
     </nav>
   );
 };

@@ -1,10 +1,14 @@
+"use client";
+
 import React from "react";
 import BalanceCard from "./_components/balanceCard";
 import GoalsList from "./_components/goalsList";
 import RecentActivityList from "./_components/recentActivityList";
 import PortfolioSummary from "./_components/portfolioSummary";
+import { useDisconnect } from "wagmi";
 
-export default async function OverviewPageClient() {
+function OverviewPageClient() {
+  const { disconnect } = useDisconnect();
   const supportedTokens = [
     {
       address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -39,6 +43,7 @@ export default async function OverviewPageClient() {
         ))}
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <button onClick={() => disconnect()}>Disconnect</button>
         <PortfolioSummary />
         <GoalsList />
       </div>
@@ -46,3 +51,4 @@ export default async function OverviewPageClient() {
     </div>
   );
 }
+export default OverviewPageClient;
