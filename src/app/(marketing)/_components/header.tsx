@@ -1,16 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import LoginButton from "@/components/onchainKit/LoginButton";
+
 import { ChevronRight } from "lucide-react";
 
 const MainHeader: React.FC = () => {
-  const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
