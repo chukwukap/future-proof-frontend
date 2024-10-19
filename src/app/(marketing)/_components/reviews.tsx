@@ -4,120 +4,76 @@ import Image from "next/image";
 import { useRef, useEffect, Fragment } from "react";
 const topReviews = [
 	{
-		logo: "logo.svg",
-		quote: "I couldn't be happier with this platform. It streamlined our processes and saved us countless hours. Highly recommended!",
-		name: "Emily Anderson",
-		role: "Marketing Manager",
+		logo: "/placeholder.svg?height=40&width=120",
+		quote: "This platform revolutionized our workflow. The efficiency gains are remarkable, and our team productivity has soared!",
+		name: "Alex Johnson",
+		role: "Operations Director",
 	},
 	{
-		logo: "logo.svg",
-		quote: "I couldn't be happier with this platform. It streamlined our processes and saved us countless hours. Highly recommended!",
-		name: "Emily Anderson",
-		role: "Marketing Manager",
+		logo: "/placeholder.svg?height=40&width=120",
+		quote: "The intuitive interface and powerful features have made our data management a breeze. It's a game-changer for our analytics team.",
+		name: "Samantha Lee",
+		role: "Data Scientist",
 	},
 	{
-		logo: "logo.svg",
-		quote: "I couldn't be happier with this platform. It streamlined our processes and saved us countless hours. Highly recommended!",
-		name: "Emily Anderson",
-		role: "Marketing Manager",
+		logo: "/placeholder.svg?height=40&width=120",
+		quote: "Customer support is unparalleled. Any issues we've had were resolved quickly, allowing us to focus on our core business.",
+		name: "Michael Chen",
+		role: "IT Manager",
 	},
 	{
-		logo: "logo.svg",
-		quote: "I couldn't be happier with this platform. It streamlined our processes and saved us countless hours. Highly recommended!",
-		name: "Emily Anderson",
-		role: "Marketing Manager",
+		logo: "/placeholder.svg?height=40&width=120",
+		quote: "The customization options are extensive. We've been able to tailor the platform to fit our unique business needs perfectly.",
+		name: "Rachel Patel",
+		role: "Product Owner",
 	},
 	{
-		logo: "logo.svg",
-		quote: "I couldn't be happier with this platform. It streamlined our processes and saved us countless hours. Highly recommended!",
-		name: "Emily Anderson",
-		role: "Marketing Manager",
+		logo: "/placeholder.svg?height=40&width=120",
+		quote: "Implementing this solution has significantly reduced our operational costs. The ROI has exceeded our expectations.",
+		name: "David Rodriguez",
+		role: "CFO",
 	},
 	{
-		logo: "logo.svg",
-		quote: "I couldn't be happier with this platform. It streamlined our processes and saved us countless hours. Highly recommended!",
-		name: "Emily Anderson",
-		role: "Marketing Manager",
+		logo: "/placeholder.svg?height=40&width=120",
+		quote: "The analytics and reporting features have given us invaluable insights into our business performance. Highly recommended!",
+		name: "Emma Thompson",
+		role: "Business Analyst",
 	},
-	// Add more testimonials...
-];
-
-const bottomReviews = [
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	{
-		logo: "logo.svg",
-		quote: "I've tried other SAAS platforms, but none compare. It transformed our business operations, making us more efficient.",
-		name: "Daniel Scott",
-		role: "CEO",
-	},
-	// Add more testimonials...
 ];
 interface CustomerReviewProps {
-	logo: string;
 	quote: string;
 	name: string;
+	src: string;
 	role: string;
 }
 
 interface InfiniteScrollTestimonialsProps {
-	testimonials: CustomerReviewProps[];
+	testimonials: Omit<CustomerReviewProps, "src">[];
 	direction?: "left" | "right";
 }
 
 const CustomerReview: React.FC<CustomerReviewProps> = ({
-	logo,
 	quote,
 	name,
 	role,
+	src,
 }) => (
-	<article className='bg-gray-800 rounded-lg p-6 mx-4 w-80 flex-shrink-0 testimonial-card'>
-		<Image
-			src={logo}
-			width={32}
-			height={32}
-			alt='Company logo'
-		/>
+	<article className='relative bg-gray-800 rounded-2xl p-6 mx-4 w-[22rem] h-[14rem] flex-shrink-0 testimonial-card'>
 		<p className='mb-4'>{quote}</p>
-		<div className='flex items-center'>
-			<div className='w-10 h-10 rounded-full bg-gray-600 mr-3'></div>
+		<div className='flex items-center gap-3 absolute left-6 bottom-6'>
+			<span className='w-[3rem] h-[3rem] block '>
+				<Image
+					src={src}
+					alt={src}
+					width={1}
+					height={1}
+					sizes='100%'
+					className=' rounded-full bg-gray-600 mr-3 object-cover border w-full h-full grayscale'
+				/>
+			</span>
 			<div>
 				<p className='font-semibold'>{name}</p>
-				<p className='text-sm text-gray-400'>{role}</p>
+				<p className='text-sm text-gray-400 italic'>{role}</p>
 			</div>
 		</div>
 	</article>
@@ -139,6 +95,7 @@ const InfiniteScrollTestimonials: React.FC<InfiniteScrollTestimonialsProps> = ({
 						<CustomerReview
 							key={`${testimonial.name}-${index}`}
 							{...testimonial}
+							src={`/images/review-${index + 1}.jpg`}
 						/>
 					))}
 				</div>
@@ -177,7 +134,7 @@ const InfiniteScrollTestimonials: React.FC<InfiniteScrollTestimonialsProps> = ({
 
 const Review: React.FC = () => {
 	return (
-		<section className='bg-gray-900 text-white py-16'>
+		<section className='bg-gray-900 text-white py-16 overflow-hidden'>
 			<h2 className='text-blue-400 text-center mb-2'>Testimonials</h2>
 			<h1 className='text-4xl font-bold text-center mb-4'>
 				Real user experiences.
@@ -186,11 +143,11 @@ const Review: React.FC = () => {
 				See how our SAAS solution has boosted businesses success.
 			</p>
 			<div className='relative py-12'>
-				<div className='gradient-inner-shadow top-0  absolute h-full left-[0%] w-full  z-10' />
+				<div className='gradient-inner-shadow top-0  absolute h-full left-1/2 w-[120%] -translate-x-1/2  z-10 rounded-3xl' />
 				<InfiniteScrollTestimonials testimonials={topReviews} />
 				<div className='my-8' />
 				<InfiniteScrollTestimonials
-					testimonials={bottomReviews}
+					testimonials={topReviews.reverse()}
 					direction='right'
 				/>
 			</div>
@@ -199,10 +156,10 @@ const Review: React.FC = () => {
 					.gradient-inner-shadow {
 						background-image: linear-gradient(
 							to right,
-							rgba(0, 0, 0, 0.7) 0%,
-							transparent 10%,
-							transparent 87%,
-							rgba(0, 0, 0, 0.7) 100%
+							#111827 0%,
+							transparent 30%,
+							transparent 65%,
+							#111827 100%
 						);
 					}
 				`}

@@ -39,7 +39,7 @@ export default function FAQSection() {
 	};
 
 	return (
-		<div className='min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8'>
+		<div className='min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 relative'>
 			<div className='max-w-2xl mx-auto'>
 				<h2 className='text-4xl font-extrabold text-center mb-2'>
 					Frequently Asked Questions
@@ -52,17 +52,17 @@ export default function FAQSection() {
 					{faqs.map((faq, index) => (
 						<div
 							key={index}
-							className='bg-gray-800 rounded-lg overflow-hidden transition-all duration-300 ease-in-out'>
+							className='bg-gray-800 rounded-[1.4rem] overflow-hidden transition-all duration-300 ease-in-out border border-[#d8d7d746]'>
 							<button
 								className='w-full text-left p-6 focus:outline-none flex justify-between items-center'
 								onClick={() => toggleQuestion(index)}>
-								<span className='text-lg font-medium'>
+								<span className='text-lg text-gray-300 font-medium'>
 									{faq.question}
 								</span>
 								{openIndex === index ? (
-									<Minus className='flex-shrink-0 h-6 w-6 text-blue-500' />
+									<Minus className='flex-shrink-0 bg-[#dadada39] h-8 w-8 text-blue-500 rounded-full border border-[#d8d7d746] p-1' />
 								) : (
-									<Plus className='flex-shrink-0 h-6 w-6 text-blue-500' />
+									<Plus className='flex-shrink-0 bg-[#dadada39] h-8 w-8 text-blue-500 rounded-full border border-[#d8d7d746] p-1' />
 								)}
 							</button>
 							{openIndex === index && (

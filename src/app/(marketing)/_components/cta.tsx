@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 const CTA = () => {
 	return (
-		<section className='w-[70%] my-12 mx-auto flex justify-between bg-blue-950 p-12 rounded-[1rem] overflow-hidden relative'>
+		<section className='w-[70%] my-12 mx-auto flex justify-between bg-gray-900 border border-gray-600 p-12 rounded-[1rem] overflow-hidden relative'>
 			<Image
 				width={300}
 				height={300}
