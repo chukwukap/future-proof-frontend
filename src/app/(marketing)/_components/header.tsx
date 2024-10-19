@@ -57,7 +57,7 @@ const MainHeader: React.FC = () => {
 				Get started
 				<ChevronRight
 					color='#c4c4c4f7'
-					className='border rounded-full h-9 w-9 p-1 bg-[#c4c4c41d]'
+					className='border border-[#e9e9e95e] rounded-full h-9 w-9 p-1 bg-[#c4c4c41d]'
 				/>
 			</button>
 		</nav>
