@@ -30,6 +30,7 @@ const QuickActions: React.FC = () => {
               href={action.href}
               className="flex items-center p-3 rounded-md bg-gray-50 hover:bg-gray-100 transition duration-150 ease-in-out"
             >
+              k
               <action.icon className="h-6 w-6 text-gray-600 mr-3" />
               <span className="text-sm font-medium text-gray-700">
                 {action.name}

@@ -30,7 +30,7 @@ const mockGoals = [
   },
 ];
 
-const GoalsPage = () => {
+const GoalsPageClient = () => {
   const [showNewGoalForm, setShowNewGoalForm] = useState(false);
 
   return (
@@ -111,4 +111,4 @@ const GoalsPage = () => {
   );
 };
 
-export default GoalsPage;
+export default GoalsPageClient;

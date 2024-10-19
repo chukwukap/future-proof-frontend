@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, } from "react";
 import { useRouter } from "next/navigation";
-import { useEnsName } from "wagmi";
 import Link from "next/link";
 import {
   ArrowRightIcon,
@@ -11,14 +10,11 @@ import {
   LinkIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
-import { useOnchainKit } from "@coinbase/onchainkit";
 import SignupButton from "@/components/onchainKit/SignupButton";
+import {  } from "@coinbase/onchainkit/wallet";
 
 const GetStartedPage = () => {
   const router = useRouter();
-  const [isConnected, setIsConnected] = useState(false);
-  const { data: ensName, isLoading } = useEnsName({ address });
-  const { address } = useOnchainKit();
 
   useEffect(() => {
     if (isConnected && !isLoading) {

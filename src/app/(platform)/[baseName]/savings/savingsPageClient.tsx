@@ -8,7 +8,7 @@ const supportedTokens = [
   { symbol: "cbBTC", balance: "2000", apy: 3.5 },
 ];
 
-const SavingsPage = () => {
+const SavingsPageClient = () => {
   const [selectedToken, setSelectedToken] = useState(supportedTokens[0]);
   const [amount, setAmount] = useState("");
 
@@ -105,4 +105,4 @@ const SavingsPage = () => {
   );
 };
 
-export default SavingsPage;
+export default SavingsPageClient;

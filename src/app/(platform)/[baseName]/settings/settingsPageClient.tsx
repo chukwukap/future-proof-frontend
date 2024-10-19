@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
-const SettingsPage = () => {
+const SettingsPageClient = () => {
   const { theme, setTheme } = useTheme();
   const [notifications, setNotifications] = useState(true);
   const [twoFactor, setTwoFactor] = useState(false);
@@ -102,4 +102,4 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default SettingsPageClient;

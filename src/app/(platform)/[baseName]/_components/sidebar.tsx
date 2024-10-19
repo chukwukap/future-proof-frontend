@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import {
   HomeIcon,
   CurrencyDollarIcon,
@@ -11,15 +11,16 @@ import {
 } from "@heroicons/react/24/outline";
 
 const navItems = [
-  { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
-  { name: "Savings", href: "/dashboard/savings", icon: CurrencyDollarIcon },
-  { name: "Goals", href: "/dashboard/goals", icon: ChartBarIcon },
-  { name: "Settings", href: "/dashboard/settings", icon: CogIcon },
-  { name: "Help", href: "/dashboard/help", icon: QuestionMarkCircleIcon },
+  { name: "Dashboard", href: "", icon: HomeIcon },
+  { name: "Savings", href: "/savings", icon: CurrencyDollarIcon },
+  { name: "Goals", href: "/goals", icon: ChartBarIcon },
+  { name: "Settings", href: "/settings", icon: CogIcon },
+  { name: "Help", href: "/help", icon: QuestionMarkCircleIcon },
 ];
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const params = useParams();
 
   return (
     <div className="flex flex-col h-full bg-gray-900 text-white w-64">
@@ -30,10 +31,10 @@ const Sidebar = () => {
         <ul className="space-y-2">
           {navItems.map((item) => (
             <li key={item.name}>
-              <Link href={item.href}>
+              <Link href={`/${params.baseName}${item.href}`}>
                 <span
                   className={`flex items-center px-6 py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-all duration-200 ${
-                    pathname === item.href
+                    pathname === `/${params.baseName}${item.href}`
                       ? "bg-gray-800 text-white border-l-4 border-blue-500"
                       : ""
                   }`}
