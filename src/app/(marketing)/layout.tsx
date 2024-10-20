@@ -1,16 +1,16 @@
 import MarketingHeader from "./_components/header";
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <div className={`antialiased`}>
-      <div>
-        <MarketingHeader />
-        {children}
-      </div>
-    </div>
-  );
+	return (
+		<div className={`antialiased`}>
+			<div>
+				<MarketingHeader />
+				{children}
+			</div>
+		</div>
+	);
 }

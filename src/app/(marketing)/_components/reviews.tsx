@@ -137,13 +137,13 @@ const Review: React.FC = () => {
 	return (
 		<section className='bg-gray-900 text-white py-16 overflow-hidden'>
 			<TopText title='Reviews' />
-			<h1 className='text-[2.7rem] font-manrope text-center  font-semibold text-slate-300 '>
+			<h1 className='text-[1.7rem] md:text-[2.7rem] font-manrope text-center  font-semibold text-slate-300 '>
 				Our Customers Love Us
 			</h1>
-			<p className='text-center mb-12'>
+			<p className='text-center mb-12 md:text-md text-[.7rem]  text-gray-500 '>
 				See how our SAAS solution has boosted businesses success.
 			</p>
-			<div className='relative py-12'>
+			<div className='relative py-2 md:py-12'>
 				<div className='gradient-inner-shadow top-0  absolute h-full left-1/2 w-[120%] -translate-x-1/2  z-10 rounded-3xl' />
 				<InfiniteScrollTestimonials testimonials={topReviews} />
 				<div className='my-8' />

@@ -7,7 +7,7 @@ import FAQSection from "./_components/faq";
 
 export default function Home() {
 	return (
-		<div className='min-h-screen relative'>
+		<div className='min-h-screen bg-gray-900 relative'>
 			<MarketingHero />
 			<Features />
 			<Team />

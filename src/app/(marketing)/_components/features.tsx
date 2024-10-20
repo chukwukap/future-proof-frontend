@@ -14,19 +14,19 @@ interface FeatureCardProps {
 const Feature: React.FC<FeatureCardProps> = (props) => (
 	<div
 		id={props.id}
-		className={`  bg-opacity-90 rounded-lg p-10 shadow-lg bg-[#263141] relative overflow-hidden`}>
-		<div className='radial--glow w-[20rem] h-[20rem] right-0 top-0  rounded-full translate-x-[30%] -translate-y-1/2 ' />
+		className={`  bg-opacity-90 rounded-lg px-8 md:px-10 p-10 shadow-lg bg-[#263141] relative overflow-hidden`}>
+		<div className='radial--glow w-[20rem] h-[20rem] right-0 top-0  rounded-full translate-x-[30%] -translate-y-1/2 absolute [--glow-bg:#263141] ' />
 		<Image
 			src={props.src}
 			width={90}
 			height={90}
 			alt='icon'
-			className='mb-6'
+			className='mb-6 w-[3rem] md:w-[90px] '
 		/>
 		<h3 className='text-xl font-bold mb-4 font-manrope text-gray-300 '>
 			{props.title}
 		</h3>
-		<p className='text-gray-500 '>{props.description}</p>
+		<p className='text-gray-500 text-sm md:text-md'>{props.description}</p>
 	</div>
 );
 
@@ -38,10 +38,10 @@ export default function Features() {
 			ref={containerRef}
 			className='relative p-4 pt-[4rem] bg-gray-900 overflow-hidden'>
 			<TopText title='Features' />
-			<h1 className='text-[2.7rem] font-semibold text-center font-manrope flex items-start justify-center text-slate-300 '>
+			<h1 className=' text-[1.7rem] md:text-[2.7rem] font-semibold text-center font-manrope flex items-start justify-center text-slate-300 '>
 				Features at a glance{" "}
 			</h1>
-			<div className='grid grid-cols-3 gap-[2rem] mt-12 justify-center items-center w-[80%] mx-auto z-10'>
+			<div className='grid grid-cols-1 md:grid-cols-3 gap-[2rem] mt-12 justify-center items-center w-[90%] md:w-[80%] mx-auto z-10'>
 				<Feature
 					id='feature2'
 					src='/images/dashboard/goal-shape.svg'

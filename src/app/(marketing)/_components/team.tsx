@@ -10,7 +10,7 @@ interface TeamCardProps {
 
 const TeamCard: React.FC<TeamCardProps> = (props) => {
 	return (
-		<div className='bg-[#263141] bg-opacity-90  p-10 shadow-lg h-[24rem] w-[21rem] rounded-[1rem] relative '>
+		<div className='bg-[#263141] bg-opacity-90  p-10 shadow-lg h-[24rem] w-[95%] md:w-[21rem] rounded-[1rem] relative '>
 			<Image
 				fill
 				src={props.src}
@@ -46,10 +46,10 @@ const Team: React.FC = () => {
 	return (
 		<section className='relative p-4 pt-[4rem] bg-gray-900'>
 			<TopText title='Team' />
-			<h1 className='text-[2.7rem]  font-manrope text-center  font-semibold text-slate-300 '>
+			<h1 className='text-[1.7rem] md:text-[2.7rem]  font-manrope text-center  font-semibold text-slate-300 '>
 				Meet the Builders
 			</h1>
-			<div className='flex justify-center items-center gap-8 mt-8'>
+			<div className='flex flex-col md:flex-row justify-center items-center gap-8 mt-8'>
 				<TeamCard
 					name='Chukwuba Promise'
 					role='Blockchain Developer'

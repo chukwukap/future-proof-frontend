@@ -24,19 +24,20 @@ const MainHeader: React.FC = () => {
 
 	return (
 		<nav
-			className={`fixed px-8  top-0 left-0 right-0 z-50 transition-all  border-b-[#dcdcdc3d] duration-300 flex items-center justify-between h-[10vh] ${
+			className={`fixed px-4 md:px-8  top-0 left-0 right-0 z-50 transition-all  border-b-[#dcdcdc3d] duration-300 flex items-center justify-between h-[10vh] ${
 				isScrolled ? " backdrop-blur-md border-b" : "bg-transparent"
 			}`}>
-			<div className='flex items-center gap-2'>
+			<div className='flex items-center gap-1 md:gap-2'>
 				<Image
 					src='/logo.svg'
 					width={38}
 					height={38}
 					alt=''
+					className='md:w-[38px] md:h-[38px] w-6'
 				/>
 				<p>FutureProof</p>
 			</div>
-			<div className='flex justify-center items-center gap-12'>
+			<div className=' justify-center items-center gap-12 md:flex hidden'>
 				<a
 					className='text-sm'
 					href='#'>
@@ -53,11 +54,11 @@ const MainHeader: React.FC = () => {
 					Team
 				</a>
 			</div>
-			<button className='flex justify-center items-center border rounded-[1.6rem] text-[.8rem] gap-3 pl-5 border-[#e9e9e96f] backdrop-blur-md'>
+			<button className='flex justify-center items-center border rounded-[1.6rem] md:text-[.8rem] text-[.7rem] gap-3 pl-3 md:pl-5  border-[#e9e9e96f] backdrop-blur-md '>
 				Get started
 				<ChevronRight
 					color='#c4c4c4f7'
-					className='border border-[#e9e9e95e] rounded-full h-9 w-9 p-1 bg-[#c4c4c41d]'
+					className='border border-[#e9e9e95e] rounded-full w-6 h-6 md:h-9 md:w-9  md:p-1 bg-[#c4c4c41d]'
 				/>
 			</button>
 		</nav>
