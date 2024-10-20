@@ -8,7 +8,7 @@
     "generate-types": "typechain --target ethers-v6 --out-dir src/types/ethers-contracts 'out/**/*.json'",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.7.1",
