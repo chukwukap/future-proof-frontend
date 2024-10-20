@@ -24,6 +24,7 @@ export function useWagmiConfig() {
         {
           groupName: "Recommended Wallet",
           wallets: [coinbaseWallet],
+          
         },
         {
           groupName: "Other Wallets",
@@ -37,11 +38,13 @@ export function useWagmiConfig() {
     );
 
     const wagmiConfig = createConfig({
+
       chains: [base, baseSepolia],
       // turn off injected provider discovery
       multiInjectedProviderDiscovery: false,
       connectors,
       ssr: true,
+
       transports: {
         [base.id]: http(),
         [baseSepolia.id]: http(),

@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { BellIcon, UserCircleIcon } from "@heroicons/react/24/outline";
-import { useParams } from "next/navigation";
+import { BellIcon } from "@heroicons/react/24/outline";
 
+import LoginButton from "@/components/onchainKit/LoginButton";
 const Header = () => {
-  const params = useParams();
   return (
     <header className="bg-gray-800 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,10 +16,7 @@ const Header = () => {
               <BellIcon className="h-6 w-6" />
             </button>
             <div className="flex items-center space-x-2">
-              <UserCircleIcon className="h-8 w-8 text-gray-300" />
-              <span className="text-sm font-medium text-gray-300">
-                {params.baseName}
-              </span>
+              <LoginButton />
             </div>
           </div>
         </div>

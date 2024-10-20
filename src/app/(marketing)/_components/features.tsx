@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import Xarrow from "react-xarrows";
 import Image from "next/image";
 import TopText from "./top-text";
 

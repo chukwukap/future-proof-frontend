@@ -1,5 +1,7 @@
-import SettingsPageClient from "../settings/settingsPageClient";
+import SavingsPageClient from "./savingsPageClient";
 
-export default async function SettingsPage() {
-  return <SettingsPageClient />;
+async function SavingsPage() {
+  return <SavingsPageClient />;
 }
+
+export default SavingsPage;

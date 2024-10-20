@@ -1,5 +1,7 @@
 import OverviewPageClient from "./overviewPageClient";
 
-export default function Page() {
+function OverviewPage() {
   return <OverviewPageClient />;
 }
+
+export default OverviewPage;
