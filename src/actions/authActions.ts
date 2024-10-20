@@ -2,20 +2,21 @@ import { prisma } from "@/config/prisma";
 import { generateObjectId } from "@/lib/utils";
 
 export async function createOrUpdateUser(userData: {
+  id: string;
   address: string;
   email: string;
-  smartWalletAddress?: string;
+  smartWalletAddress?: string | null;
 }) {
-  const { address, email, smartWalletAddress } = userData;
+  const { id, address, email, smartWalletAddress } = userData;
 
   return prisma.user.upsert({
-    where: { address: address.toLowerCase() },
+    where: { address: address || address.toLowerCase() },
     update: {
       email,
       smartWalletAddress: smartWalletAddress?.toLowerCase(),
     },
     create: {
-      id: generateObjectId(),
+      id,
       address: address.toLowerCase(),
       email,
       smartWalletAddress: smartWalletAddress?.toLowerCase(),

@@ -33,22 +33,15 @@ export default function DynamicProvider({
         handlers: {
           handleAuthenticatedUser: async ({ user }) => {
             console.log("Authenticated user:", user);
-            if (
-              user.verifiedCredentials &&
-              user.verifiedCredentials.length > 0
-            ) {
-              const address = user.verifiedCredentials.find(
-                (cred) => cred.format === "blockchain"
-              )?.address;
-              const email = user.email;
-              if (address && email) {
-                try {
-                  await createOrUpdateUser({ address, email });
-                  console.log("User created or updated successfully");
-                } catch (error) {
-                  console.error("Error creating or updating user:", error);
-                }
-              }
+
+            if (user.newUser && user.email && user.userId) {
+              await createOrUpdateUser({
+                address: user.verifiedCredentials[0].address!,
+                email: user.email,
+                id: user.userId,
+              });
+              router.push(`/${user.userId}`);
+              console.log("User created or updated successfully");
             }
           },
         },
