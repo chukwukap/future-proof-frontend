@@ -12,6 +12,7 @@
   "dependencies": {
     "@auth/prisma-adapter": "^2.7.1",
     "@coinbase/onchainkit": "^0.33.6",
+    "postinstall": "prisma generate",
     "@dynamic-labs/ethereum": "^3.4.2",
     "@dynamic-labs/sdk-react-core": "^3.4.2",
     "@dynamic-labs/wagmi-connector": "^3.4.2",
