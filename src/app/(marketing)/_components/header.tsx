@@ -4,10 +4,14 @@ import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
 
+import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import { ChevronRight } from "lucide-react";
+// import { ChevronRight } from "lucide-react";
 
 const MainHeader: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { setShowAuthFlow, user, handleLogOut } = useDynamicContext();
+  console.log(user);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +43,11 @@ const MainHeader: React.FC = () => {
           Team
         </a>
       </div>
-      <button className="flex justify-center items-center border rounded-[1.6rem] text-[.8rem] gap-3 pl-5 border-[#e9e9e96f] backdrop-blur-md">
+
+      <button
+        onClick={user ? handleLogOut : () => setShowAuthFlow(true)}
+        className="flex justify-center items-center border rounded-[1.6rem] text-[.8rem] gap-3 pl-5 border-[#e9e9e96f] backdrop-blur-md"
+      >
         Get started
         <ChevronRight
           color="#c4c4c4f7"

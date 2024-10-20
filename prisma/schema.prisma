@@ -11,8 +11,10 @@ generator client {
 
 model User {
   id                 String       @id @map("_id") @db.ObjectId
+  dynamicUserId      String?      @unique
   address            String       @unique
   smartWalletAddress String?      @unique
+  email              String?      @unique
   deposits           Deposit[]
   withdrawals        Withdrawal[]
   balances           Balance[]

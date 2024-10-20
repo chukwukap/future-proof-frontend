@@ -1,3 +1,4 @@
+import { BalanceWithToken } from "@/app/(platform)/[baseName]/overviewPageClient";
 import { prisma } from "@/config/prisma";
 import { generateObjectId } from "@/lib/utils";
 
@@ -34,9 +35,12 @@ export async function getBalance(userId: string, tokenId: string) {
   });
 }
 
-export async function getUserBalances(userId: string) {
+export async function getUserBalances(
+  userId: string
+): Promise<BalanceWithToken[]> {
   return prisma.balance.findMany({
     where: { userId },
     include: { token: true },
+    orderBy: { token: { symbol: "asc" } },
   });
 }

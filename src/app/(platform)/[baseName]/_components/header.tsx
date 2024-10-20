@@ -2,7 +2,6 @@
 import React from "react";
 import { BellIcon } from "@heroicons/react/24/outline";
 
-import LoginButton from "@/components/onchainKit/LoginButton";
 const Header = () => {
   return (
     <header className="bg-gray-800 shadow-md">
@@ -16,7 +15,7 @@ const Header = () => {
               <BellIcon className="h-6 w-6" />
             </button>
             <div className="flex items-center space-x-2">
-              <LoginButton />
+              <button>Get Started</button>{" "}
             </div>
           </div>
         </div>

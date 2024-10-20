@@ -1,6 +1,18 @@
 import { prisma } from "@/config/prisma";
 import { generateObjectId } from "@/lib/utils";
 
+export async function getTokenIdByCurrency(currency: string) {
+  const token = await prisma.token.findFirst({
+    where: { symbol: currency },
+  });
+
+  if (!token) {
+    throw new Error(`Token not found for currency: ${currency}`);
+  }
+
+  return token.id;
+}
+
 export async function createToken(
   address: string,
   symbol: string,

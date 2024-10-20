@@ -10,8 +10,6 @@ import {
   LinkIcon,
   LockClosedIcon,
 } from "@heroicons/react/24/outline";
-import SignupButton from "@/components/onchainKit/SignupButton";
-import {} from "@coinbase/onchainkit/wallet";
 
 const GetStartedPage = () => {
   const benefits = [
@@ -48,7 +46,6 @@ const GetStartedPage = () => {
               Connect your wallet to check for a Base name or get redirected to
               create one
             </p>
-            <SignupButton />
           </div>
         </div>
 

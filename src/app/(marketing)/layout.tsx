@@ -1,6 +1,6 @@
 import MarketingHeader from "./_components/header";
 
-export default function RootLayout({
+export default async function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;

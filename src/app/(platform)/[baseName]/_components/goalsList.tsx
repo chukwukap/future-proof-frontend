@@ -1,87 +1,75 @@
-"use client";
+import React, { useState } from "react";
+import { Goal } from "@prisma/client";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
-import React from "react";
-import Link from "next/link";
-import { PlusIcon } from "@heroicons/react/24/solid";
+interface GoalsListProps {
+  goals: Goal[];
+  onAddFunds: (goalId: string, amount: string) => Promise<void>;
+}
 
-const mockGoals = [
-  {
-    id: "1",
-    name: "Vacation",
-    currentAmount: 2000,
-    targetAmount: 5000,
-    currency: "USDC",
-    deadline: "2023-12-31",
-  },
-  {
-    id: "2",
-    name: "New Car",
-    currentAmount: 10000,
-    targetAmount: 30000,
-    currency: "USDC",
-    deadline: "2024-06-30",
-  },
-  {
-    id: "3",
-    name: "Emergency Fund",
-    currentAmount: 5000,
-    targetAmount: 10000,
-    currency: "EURC",
-    deadline: "2023-09-30",
-  },
-];
+const GoalsList: React.FC<GoalsListProps> = ({ goals, onAddFunds }) => {
+  const [selectedGoal, setSelectedGoal] = useState<Goal | null>(null);
+  const [amount, setAmount] = useState("");
 
-const GoalsList: React.FC = () => {
+  const handleAddFunds = async () => {
+    if (selectedGoal && amount) {
+      await onAddFunds(selectedGoal.id, amount);
+      setSelectedGoal(null);
+      setAmount("");
+    }
+  };
+
   return (
-    <div className="bg-card rounded-2xl shadow-lg overflow-hidden">
-      <div className="p-6 border-b border-border flex justify-between items-center">
-        <h3 className="text-2xl font-semibold text-card-foreground">
-          Your Savings Goals
-        </h3>
-        <button className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200">
-          <PlusIcon className="h-5 w-5 mr-1" />
-          Add Goal
-        </button>
-      </div>
-      <ul className="divide-y divide-border">
-        {mockGoals.map((goal) => (
-          <li key={goal.id}>
-            <Link href={`/dashboard/goals/${goal.id}`}>
-              <div className="p-6 hover:bg-muted/50 transition duration-150 ease-in-out">
-                <div className="flex justify-between items-center mb-2">
-                  <p className="text-lg font-medium text-card-foreground">
-                    {goal.name}
-                  </p>
-                  <p className="text-sm font-medium text-muted-foreground">
-                    {goal.deadline}
-                  </p>
-                </div>
-                <div className="flex justify-between items-center mb-2">
-                  <p className="text-sm text-muted-foreground">
-                    {goal.currentAmount} / {goal.targetAmount} {goal.currency}
-                  </p>
-                  <p className="text-sm font-medium text-primary">
-                    {((goal.currentAmount / goal.targetAmount) * 100).toFixed(
-                      1
-                    )}
-                    %
-                  </p>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div
-                    className="bg-primary h-2.5 rounded-full transition-all duration-300 ease-in-out"
-                    style={{
-                      width: `${
-                        (goal.currentAmount / goal.targetAmount) * 100
-                      }%`,
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </Link>
-          </li>
+    <div className="bg-card rounded-xl shadow-lg p-6">
+      <h2 className="text-2xl font-bold mb-4">Savings Goals</h2>
+      <div className="space-y-4">
+        {goals.map((goal) => (
+          <div key={goal.id} className="bg-card-secondary rounded-lg p-4">
+            {/* ... (previous goal rendering code) ... */}
+            <div className="flex justify-between items-center">
+              <p className="text-sm font-medium text-primary">
+                {(
+                  (parseFloat(goal.currentAmount) /
+                    parseFloat(goal.targetAmount)) *
+                  100
+                ).toFixed(1)}
+                % Complete
+              </p>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => setSelectedGoal(goal)}
+                  >
+                    Add Funds
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Add Funds to {goal.name}</DialogTitle>
+                  </DialogHeader>
+                  <Input
+                    type="number"
+                    placeholder="Amount"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                  />
+                  <Button onClick={handleAddFunds}>Confirm</Button>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

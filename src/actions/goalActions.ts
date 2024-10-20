@@ -38,6 +38,7 @@ export async function getUserGoals(userId: string) {
   return prisma.goal.findMany({
     where: { userId },
     include: { token: true },
+    orderBy: { createdAt: "desc" },
   });
 }
 

@@ -1,0 +1,200 @@
+{
+  "User": {
+    "_id": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+    "dynamicUserId": "dyn_1234567890",
+    "address": "0x1234567890123456789012345678901234567890",
+    "smartWalletAddress": "0x2345678901234567890123456789012345678901",
+    "email": "adebayo.ogunlesi@gmail.com",
+    "createdAt": { "$date": "2023-05-15T10:30:00Z" },
+    "updatedAt": { "$date": "2023-06-01T14:45:00Z" }
+  },
+
+  "Token": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1235" },
+      "address": "0x3456789012345678901234567890123456789012",
+      "symbol": "cbBTC",
+      "decimals": 8,
+      "createdAt": { "$date": "2023-05-01T00:00:00Z" },
+      "updatedAt": { "$date": "2023-05-01T00:00:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "address": "0x4567890123456789012345678901234567890123",
+      "symbol": "USDC",
+      "decimals": 6,
+      "createdAt": { "$date": "2023-05-01T00:00:00Z" },
+      "updatedAt": { "$date": "2023-05-01T00:00:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1237" },
+      "address": "0x5678901234567890123456789012345678901234",
+      "symbol": "USDT",
+      "decimals": 6,
+      "createdAt": { "$date": "2023-05-01T00:00:00Z" },
+      "updatedAt": { "$date": "2023-05-01T00:00:00Z" }
+    }
+  ],
+
+  "Deposit": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1238" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "amount": "1000000000",
+      "txHash": "0x6789012345678901234567890123456789012345678901234567890123456789",
+      "goalId": { "$oid": "60a5e4b0e7b7a2001f3c1244" },
+      "createdAt": { "$date": "2023-05-20T11:30:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1239" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1235" },
+      "amount": "5000000",
+      "txHash": "0x7890123456789012345678901234567890123456789012345678901234567890",
+      "createdAt": { "$date": "2023-05-25T13:45:00Z" }
+    }
+  ],
+
+  "Withdrawal": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1240" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "amount": "500000000",
+      "txHash": "0x8901234567890123456789012345678901234567890123456789012345678901",
+      "createdAt": { "$date": "2023-05-30T15:00:00Z" }
+    }
+  ],
+
+  "Balance": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1241" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "amount": "500000000",
+      "lastUpdated": { "$date": "2023-05-30T15:05:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1242" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1235" },
+      "amount": "5000000",
+      "lastUpdated": { "$date": "2023-05-25T13:50:00Z" }
+    }
+  ],
+
+  "InterestDistribution": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1243" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "totalAmount": "10000000",
+      "distributedAt": { "$date": "2023-06-01T00:00:00Z" }
+    }
+  ],
+
+  "Goal": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1244" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "name": "Owanbe Party",
+      "targetAmount": "5000000000",
+      "currentAmount": "1000000000",
+      "deadline": { "$date": "2023-12-31T23:59:59Z" },
+      "createdAt": { "$date": "2023-05-18T09:00:00Z" },
+      "updatedAt": { "$date": "2023-05-20T11:35:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1245" },
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1235" },
+      "name": "Bitcoin Savings",
+      "targetAmount": "10000000",
+      "currentAmount": "5000000",
+      "deadline": { "$date": "2024-05-31T23:59:59Z" },
+      "createdAt": { "$date": "2023-05-24T10:00:00Z" },
+      "updatedAt": { "$date": "2023-05-25T13:50:00Z" }
+    }
+  ],
+
+  "Referral": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1246" },
+      "referrerId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "referredAddress": "0x9012345678901234567890123456789012345678",
+      "status": "COMPLETED",
+      "createdAt": { "$date": "2023-05-22T14:30:00Z" },
+      "updatedAt": { "$date": "2023-05-23T10:00:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1247" },
+      "referrerId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "referredAddress": "0xa123456789012345678901234567890123456789",
+      "status": "PENDING",
+      "createdAt": { "$date": "2023-05-28T16:45:00Z" },
+      "updatedAt": { "$date": "2023-05-28T16:45:00Z" }
+    }
+  ],
+
+  "ExchangeRate": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1248" },
+      "fromToken": "USDC",
+      "toToken": "cbBTC",
+      "rate": 0.000038,
+      "updatedAt": { "$date": "2023-06-01T00:00:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1249" },
+      "fromToken": "USDT",
+      "toToken": "cbBTC",
+      "rate": 0.000037,
+      "updatedAt": { "$date": "2023-06-01T00:00:00Z" }
+    }
+  ],
+
+  "Transaction": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1250" },
+      "txHash": "0x6789012345678901234567890123456789012345678901234567890123456789",
+      "type": "DEPOSIT",
+      "status": "COMPLETED",
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "amount": "1000000000",
+      "createdAt": { "$date": "2023-05-20T11:30:00Z" },
+      "updatedAt": { "$date": "2023-05-20T11:35:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1251" },
+      "txHash": "0x8901234567890123456789012345678901234567890123456789012345678901",
+      "type": "WITHDRAWAL",
+      "status": "COMPLETED",
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "amount": "500000000",
+      "createdAt": { "$date": "2023-05-30T15:00:00Z" },
+      "updatedAt": { "$date": "2023-05-30T15:05:00Z" }
+    },
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1252" },
+      "txHash": "0xb123456789012345678901234567890123456789012345678901234567890123",
+      "type": "INTEREST",
+      "status": "COMPLETED",
+      "userId": { "$oid": "60a5e4b0e7b7a2001f3c1234" },
+      "tokenId": { "$oid": "60a5e4b0e7b7a2001f3c1236" },
+      "amount": "5000000",
+      "createdAt": { "$date": "2023-06-01T00:05:00Z" },
+      "updatedAt": { "$date": "2023-06-01T00:05:00Z" }
+    }
+  ],
+
+  "MerkleRoot": [
+    {
+      "_id": { "$oid": "60a5e4b0e7b7a2001f3c1253" },
+      "root": "0xc123456789012345678901234567890123456789012345678901234567890123",
+      "createdAt": { "$date": "2023-06-01T00:10:00Z" }
+    }
+  ]
+}

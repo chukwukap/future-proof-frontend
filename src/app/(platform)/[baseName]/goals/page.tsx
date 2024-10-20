@@ -1,8 +1,11 @@
-"use client";
+import { getUserGoals } from "@/actions/goalActions";
 import GoalsPageClient from "./goalsPageClient";
+import { sampleUserId } from "../page";
 
-function GoalsPage() {
-  return <GoalsPageClient />;
+async function GoalsPage({}: { params: { baseName: string } }) {
+  const goals = await getUserGoals(sampleUserId);
+
+  return <GoalsPageClient initialGoals={goals} />;
 }
 
 export default GoalsPage;
