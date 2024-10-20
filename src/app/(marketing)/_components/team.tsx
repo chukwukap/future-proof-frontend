@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TopText from "./top-text";
 
 interface TeamCardProps {
 	src: string;
@@ -9,7 +10,7 @@ interface TeamCardProps {
 
 const TeamCard: React.FC<TeamCardProps> = (props) => {
 	return (
-		<div className='bg-[#263141] bg-opacity-90  p-10 shadow-lg h-[24rem] w-[21rem] rounded-[1rem] relative '>
+		<div className='bg-[#263141] bg-opacity-90  p-10 shadow-lg h-[24rem] w-[95%] md:w-[21rem] rounded-[1rem] relative '>
 			<Image
 				fill
 				src={props.src}
@@ -44,13 +45,14 @@ const TeamCard: React.FC<TeamCardProps> = (props) => {
 const Team: React.FC = () => {
 	return (
 		<section className='relative p-4 pt-[4rem] bg-gray-900'>
-			<h1 className='text-[3rem] text-white font-manrope text-center  font-semibold leading-[6rem]'>
-				Meet the Team
+			<TopText title='Team' />
+			<h1 className='text-[1.7rem] md:text-[2.7rem]  font-manrope text-center  font-semibold text-slate-300 '>
+				Meet the Builders
 			</h1>
-			<div className='flex justify-center items-center gap-8'>
+			<div className='flex flex-col md:flex-row justify-center items-center gap-8 mt-8'>
 				<TeamCard
-					name='Anioke Sebastian'
-					role='Frontend Engineer'
+					name='Chukwuba Promise'
+					role='Blockchain Developer'
 					twitter='/sss'
 					src='/images/nft-1.jpeg'
 				/>
@@ -61,8 +63,8 @@ const Team: React.FC = () => {
 					src='/images/nft-2.jpeg'
 				/>
 				<TeamCard
-					name='Anioke Sebastian'
-					role='Frontend Engineer'
+					name='Ejiofor Celestine'
+					role='Backend Engineer'
 					twitter='/sss'
 					src='/images/nft-3.jpeg'
 				/>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import TopText from "./top-text";
 
 const faqs = [
 	{
@@ -39,16 +40,13 @@ export default function FAQSection() {
 	};
 
 	return (
-		<div className='min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8 relative'>
+		<div className='min-h-screen  text-white py-12 px-4 sm:px-6 lg:px-8 relative z-10'>
 			<div className='max-w-2xl mx-auto'>
-				<h2 className='text-4xl font-extrabold text-center mb-2'>
-					Frequently Asked Questions
-				</h2>
-				<p className='text-xl text-gray-400 text-center mb-12'>
-					Answers to common questions about our services, processes, and
-					what sets us apart.
-				</p>
-				<div className='grid grid-cols-1  gap-6'>
+				<TopText title='FAQ' />
+				<h1 className='text-[1.7rem] md:text-[2.7rem]  font-manrope text-center  font-semibold text-slate-300 '>
+					Answers to common questions
+				</h1>
+				<div className='grid grid-cols-1  gap-6 mt-8 '>
 					{faqs.map((faq, index) => (
 						<div
 							key={index}
@@ -56,7 +54,7 @@ export default function FAQSection() {
 							<button
 								className='w-full text-left p-6 focus:outline-none flex justify-between items-center'
 								onClick={() => toggleQuestion(index)}>
-								<span className='text-lg text-gray-300 font-medium'>
+								<span className='text-md md:text-lg text-gray-300 font-medium'>
 									{faq.question}
 								</span>
 								{openIndex === index ? (
@@ -74,6 +72,7 @@ export default function FAQSection() {
 					))}
 				</div>
 			</div>
+			<div className='radial--glow h-[94%] w-[90%] absolute left-1/2 -bottom-[30%] rounded-full  -translate-x-1/2 -z-10 ' />
 		</div>
 	);
 }

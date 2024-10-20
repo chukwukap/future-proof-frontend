@@ -59,6 +59,9 @@ const config: Config = {
 			fontFamily: {
 				manrope: ["Manrope"],
 			},
+			backgroundImage: {
+				"title-span": "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
+			},
 			borderRadius: {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",

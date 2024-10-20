@@ -31,11 +31,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} font-sans bg-gray-900`}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Providers>{children}</Providers>
         </ThemeProvider>
-        <div className="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-950 dark:via-purple-950 dark:to-pink-950" />
       </body>
     </html>
   );

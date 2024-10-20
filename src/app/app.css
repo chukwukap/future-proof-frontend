@@ -11,6 +11,10 @@
 	}
 }
 
+:root {
+	--glow-bg: #111827;
+}
+
 @keyframes hero-gradient-animation {
 	0% {
 		--s-start-0: 2%;
@@ -205,16 +209,20 @@
 }
 
 .radial--glow {
-	--token-5f948dac-8d73-4e64-9593-778b631dc9a2: #263141;
 	--token-20832d6c-6be5-455d-99ea-51eb6fbc6e93: rgb(255, 255, 255);
 	background: radial-gradient(
 		50% 50% at 50% 50%,
 		var(--token-20832d6c-6be5-455d-99ea-51eb6fbc6e93, #ffffff) 0%,
-		var(--token-5f948dac-8d73-4e64-9593-778b631dc9a2, #263141) 100%
+		var(--glow-bg) 100%
 	);
 	flex: none;
 	opacity: 0.12;
 	overflow: hidden;
-	position: absolute;
 	will-change: auto;
+	/* z-index: -; */
+	/* background: red; */
+}
+
+.faq {
+	z-index: 10;
 }
