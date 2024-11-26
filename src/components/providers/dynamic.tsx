@@ -12,7 +12,6 @@ import { createOrUpdateUser } from "@/actions/authActions";
 
 const config = createConfig({
   chains: [baseSepolia],
-
   multiInjectedProviderDiscovery: false,
   transports: {
     [baseSepolia.id]: http(),

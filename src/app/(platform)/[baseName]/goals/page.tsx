@@ -3,9 +3,9 @@ import GoalsPageClient from "./goalsPageClient";
 import { sampleUserId } from "../page";
 
 async function GoalsPage({}: { params: { baseName: string } }) {
-  const goals = await getUserGoals(sampleUserId);
+  // const goals = await getUserGoals(sampleUserId);
 
-  return <GoalsPageClient initialGoals={goals} />;
+  return <GoalsPageClient />;
 }
 
 export default GoalsPage;

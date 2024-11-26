@@ -4,9 +4,9 @@ import { sampleUserId } from "../page";
 
 async function SavingsPage({}: { params: { baseName: string } }) {
   // const userId = params.baseName;
-  const goals = await getUserGoals(sampleUserId);
+  // const goals = await getUserGoals(sampleUserId);
 
-  return <SavingsPageClient initialGoals={goals} />;
+  return <SavingsPageClient  />;
 }
 
 export default SavingsPage;
