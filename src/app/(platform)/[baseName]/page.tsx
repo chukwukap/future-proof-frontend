@@ -2,11 +2,11 @@ import { getUserBalances } from "@/actions/balanceActions";
 import { getUserGoals } from "@/actions/goalActions";
 import { getUserTransactions } from "@/actions/transactions";
 import OverviewPageClient from "./overviewPageClient";
+import { sampleUserId } from "@/lib/constants";
 
-export const sampleUserId = "60a5e4b0e7b7a2001f3c8855";
 
 async function OverviewPage({ params }: { params: { baseName: string } }) {
-  console.log(params.baseName);
+  // const userId = params.baseName;
 
   try {
     const [balances, goals, transactions] = await Promise.all([

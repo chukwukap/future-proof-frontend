@@ -1,12 +1,33 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
 
 import {
 	ChartConfig,
 	ChartContainer,
-	ChartTooltip,
 	ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Fragment } from "react";
@@ -34,86 +55,59 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function AreaGradient() {
+	const data = {
+		labels: chartData.map(item => item.month),
+		datasets: [
+			{
+				fill: true,
+				label: 'Desktop',
+				data: chartData.map(item => item.desktop),
+				borderColor: chartConfig.desktop.color,
+				backgroundColor: `${chartConfig.desktop.color}33`, // Adding transparency
+				tension: 0.4,
+			},
+		],
+	};
+
+	const options = {
+		responsive: true,
+		plugins: {
+			legend: {
+				display: false,
+			},
+			title: {
+				display: false,
+			},
+		},
+		scales: {
+			x: {
+				grid: {
+					display: false,
+				},
+			},
+			y: {
+				grid: {
+					display: false,
+				},
+			},
+		},
+		elements: {
+			point: {
+				radius: 0,
+			},
+		},
+	};
+
 	return (
 		<Fragment>
 			<ChartContainer
 				className='w-full h-[17rem] mt-4'
 				config={chartConfig}>
-				<AreaChart
-					accessibilityLayer
-					data={chartData}
-					margin={{
-						left: 12,
-						right: 12,
-					}}>
-					<CartesianGrid
-						horizontal={false}
-						vertical={false}
-					/>
-					<XAxis
-						dataKey='month'
-						tickLine={false}
-						axisLine={false}
-						tickMargin={8}
-						tickFormatter={(value) => value.slice(0, 3)}
-					/>
-					<ChartTooltip
-						cursor={false}
-						content={<ChartTooltipContent />}
-					/>
-					<defs>
-						<linearGradient
-							id='fillDesktop'
-							x1='0'
-							y1='0'
-							x2='0'
-							y2='1'>
-							<stop
-								offset='5%'
-								stopColor='var(--color-desktop)'
-								stopOpacity={0.8}
-							/>
-							<stop
-								offset='95%'
-								stopColor='var(--color-desktop)'
-								stopOpacity={0.1}
-							/>
-						</linearGradient>
-						<linearGradient
-							id='fillMobile'
-							x1='0'
-							y1='0'
-							x2='0'
-							y2='1'>
-							<stop
-								offset='5%'
-								stopColor='var(--color-mobile)'
-								stopOpacity={0.8}
-							/>
-							<stop
-								offset='95%'
-								stopColor='var(--color-mobile)'
-								stopOpacity={0.1}
-							/>
-						</linearGradient>
-					</defs>
-					<Area
-						dataKey='mobile'
-						type='natural'
-						fill='url(#fillMobile)'
-						fillOpacity={0.4}
-						stroke='var(--color-mobile)'
-						stackId='a'
-					/>
-					<Area
-						dataKey='desktop'
-						type='natural'
-						fill='url(#fillDesktop)'
-						fillOpacity={0.4}
-						stroke='var(--color-desktop)'
-						stackId='a'
-					/>
-				</AreaChart>
+				<div className="absolute top-0 left-0 p-4 flex items-center gap-2">
+					<TrendingUp className="w-4 h-4" />
+					<span className="text-sm font-medium">Desktop Traffic</span>
+				</div>
+				<Line options={options} data={data} />
 			</ChartContainer>
 
 			<div className='flex w-full items-start gap-2 text-sm mt-6'>

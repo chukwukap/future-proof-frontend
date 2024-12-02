@@ -13,8 +13,8 @@ interface FeatureCardProps {
 const Feature: React.FC<FeatureCardProps> = (props) => (
 	<div
 		id={props.id}
-		className={`  bg-opacity-90 rounded-lg px-8 md:px-10 p-10 shadow-lg bg-[#263141] relative overflow-hidden`}>
-		<div className='radial--glow w-[20rem] h-[20rem] right-0 top-0  rounded-full translate-x-[30%] -translate-y-1/2 absolute [--glow-bg:#263141] ' />
+		className={`bg-gray-800 bg-opacity-90 rounded-lg px-8 md:px-10 p-10 shadow-lg relative overflow-hidden`}>
+		<div className='radial--glow w-[20rem] h-[20rem] right-0 top-0  rounded-full translate-x-[30%] -translate-y-1/2 absolute [--glow-bg:rgb(31,41,55)]' />
 		<Image
 			src={props.src}
 			width={90}

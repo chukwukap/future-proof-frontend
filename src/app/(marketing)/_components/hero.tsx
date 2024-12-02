@@ -5,7 +5,7 @@ function MarketingHero() {
 	return (
 		<section className='relative min-h-screen flex items-center justify-center overflow-hidden hero__bg'>
 			<div className='relative md:static bottom-[3rem]'>
-				<h1 className=' text-[2rem] md:text-[5rem] text-white font-manrope text-center  font-semibold md:leading-[6rem]'>
+				<h1 className='text-[2rem] md:text-[5rem] text-white font-manrope text-center font-semibold md:leading-[6rem]'>
 					<Image
 						width={60}
 						height={60}
@@ -15,7 +15,7 @@ function MarketingHero() {
 					/>
 					Futureproof your savings&nbsp;
 					<br className='md:block hidden' />
-					and grow <br className='md:hidden block' />{" "}
+					<span className='text-gray-300'>and grow</span> <br className='md:hidden block' />{" "}
 					<Image
 						width={60}
 						height={60}

@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 
 interface GoalsListProps {
   goals: Goal[];
-  onAddFunds: (goalId: string, amount: string) => Promise<void>;
+  onAddFunds: (goalId: string, amount: string) => any; //remember to edit this back to Promise<void>
 }
 
 const GoalsList: React.FC<GoalsListProps> = ({ goals, onAddFunds }) => {
